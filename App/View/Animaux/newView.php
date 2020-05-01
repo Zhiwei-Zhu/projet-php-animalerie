@@ -1,3 +1,5 @@
+<?php include('Header.php') ?>
+
 <div class="container mt-5">
     <form action="index.php?page=newProperty" method="POST">
         <div class="form-group">
@@ -34,3 +36,5 @@
         <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 </div>
+
+<?php include('Footer.php') ?>
