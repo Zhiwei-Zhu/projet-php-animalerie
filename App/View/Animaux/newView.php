@@ -1,3 +1,5 @@
+<?php include('Header.php') ?>
+
 <div class="container mt-5">
     <form action="index.php?page=newProperty" method="POST">
         <div class="form-group">
@@ -28,11 +30,11 @@
             <input type="number" class="form-control" id="floor" name="floor">
         </div>
         <div class="form-group">
-            <?php foreach ($options as $option) : ?>
-            <input type="checkbox" name="options['<?= $option->name ?>']" id="<?= $option->name ?>" value="<?= $option->id ?>">
-            <label for="<?= $option->name ?>"><?= $option->name ?></label>
-            <?php endforeach ?>
+            <input type="checkbox" name="options['']" id="" value="">
+            <label for=""></label>
         </div>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 </div>
+
+<?php include('Footer.php') ?>
