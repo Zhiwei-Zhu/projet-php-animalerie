@@ -18,12 +18,12 @@ class UserController extends Controller{
     public function signup(){
         $message = "";
         try {
-            if(!empty($_POST) && !empty($_POST["username"])){
+            if(!empty($_POST) && !empty($_POST["nom"])){
                 $_POST["password"] = $this->encoder->passwordEncode($_POST["password"]);
                 $this->interface->save($_POST, 'user');
                 return $this->redirectToRoute('home');
             }else {
-                $message = "Il manque le username";
+                $message = "Il manque le nom";
             }
         } catch (\Throwable $th) {
             $message = "Une erreur s'est produite ...";
@@ -34,7 +34,7 @@ class UserController extends Controller{
 
     public function login(){
         if(!empty($_POST)){
-            $user = $this->model->findOneBy(['username' => $_POST["username"]]);
+            $user = $this->model->findOneBy(['nom' => $_POST["nom"]]);
             if (!is_null($user)){
                 $connected = $this->encoder->passwordVerify($_POST["password"], $user->password);
                 if($connected){
