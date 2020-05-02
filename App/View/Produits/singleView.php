@@ -5,10 +5,10 @@
         <div class="card-body">
             <h5 class="card-title"></h5>
             <div class="card-text">
-                <p>Nom: </p>
-                <p>Catégorie: </p>
-                <p>Prix: </p>
-                <p>Stock: </p>
+                <p>Nom: <?= $produit->nom ?></p>
+                <p>Catégorie: <?= $produit->type_animal ?></p>
+                <p>Prix: <?= $produit->prix ?></p>
+                <p>Stock: <?= $produit->stock ?> </p>
             </div>
             <a href="index.php?page=modifyProperty&id=" class="btn btn-primary">Modifier</a>
             <a href="index.php?page=deleteProperty&id=" class="btn btn-danger">Supprimer</a>

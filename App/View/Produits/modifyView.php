@@ -2,19 +2,19 @@
 <form action="index.php?page=saveModifyProperty&id=" method="POST">
     <div class="form-group">
         <label for="Nom">Nom</label>
-        <input type="text" class="form-control" id="Nom" name="Nom" value="">
+        <input type="text" class="form-control" id="Nom" name="Nom" value="<?= $produit->nom ?>">
     </div>
     <div class="form-group">
-        <label for="address">Catégorie</label>
-        <input type="text" class="form-control" id="address" name="address" value="">
+        <label for="Type_animal">Catégorie</label>
+        <input type="text" class="form-control" id="Type_animal" name="Type_animal" value="<?= $produit->type_animal ?>">
     </div>
     <div class="form-group">
-        <label for="postalCode">Prix</label>
-        <input type="text" class="form-control" id="postalCode" name="postalCode" value="">
+        <label for="Prix">Prix</label>
+        <input type="number" class="form-control" id="Prix" name="Prix" value="<?= $produit->prix ?>">
     </div>
     <div class="form-group">
-        <label for="surface">Stock</label>
-        <input type="number" class="form-control" id="surface" name="surface" value="">
+        <label for="Stock">Stock</label>
+        <input type="number" class="form-control" id="Stock" name="Stock" value="<?= $produit->stock ?>">
     </div>
     <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>

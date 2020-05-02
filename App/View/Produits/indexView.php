@@ -6,10 +6,10 @@
         <div class="card-body"> 
             <h5 class="card-title"></h5>
             <div class="card-text">
-                <p>Nom: </p>
-                <p>Catégorie: </p>
-                <p>Prix: </p>
-                <p>Stock: </p>
+                <p>Nom: <?= $produit->nom ?></p>
+                <p>Catégorie: <?= $produit->type_animal ?></p>
+                <p>Prix: <?= $produit->prix ?></p>
+                <p>Stock: <?= $produit->stock ?> </p>
             </div>
             <a href="" class="btn btn-primary">Voir en détail</a>
         </div>
