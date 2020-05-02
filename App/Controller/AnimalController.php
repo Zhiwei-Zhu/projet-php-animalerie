@@ -22,7 +22,7 @@ class AnimalController extends Controller{
         $animals = $this->AnimalModel->findAll();
         return $this->render("Animal/singleView", ['animals' => $animals]);
     }
-    public function newProduit(){
+    public function newAnimal(){
 
         if(!empty($_POST)){
             $animal = $_POST;
