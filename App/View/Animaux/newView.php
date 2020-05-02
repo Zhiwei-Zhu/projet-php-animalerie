@@ -1,4 +1,4 @@
-<?php include('Header.php') ?>
+
 
 <div class="container mt-5">
     <form action="index.php?page=newProperty" method="POST">
@@ -37,4 +37,3 @@
     </form>
 </div>
 
-<?php include('Footer.php') ?>

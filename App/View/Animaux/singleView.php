@@ -1,5 +1,3 @@
-<?php include('Header.php') ?>
-   
     <div class="recherche mt-5"></div>
     <div class="affichage mt-5 justify-content-around">
 
@@ -17,5 +15,3 @@
             </div>
         </div>
     </div>
-
-    <?php include('Footer.php') ?>

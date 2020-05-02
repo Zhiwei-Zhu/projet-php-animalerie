@@ -1,4 +1,4 @@
-<?php include('Header.php') ?>
+
 
 <div class="container mt-5">
 <form action="index.php?page=saveModifyProperty&id=" method="POST">
@@ -32,5 +32,3 @@
     <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>
 </div>
-
-<?php include('Footer.php') ?>
