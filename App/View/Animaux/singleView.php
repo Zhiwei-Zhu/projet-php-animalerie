@@ -6,9 +6,12 @@
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <div class="card-text">
-                    <p>Code Postal: </p>
-                    <p>Surface: m2</p>
+                    <p>Nom: </p>
                     <p>Type: </p>
+                    <p>Race: </p>
+                    <p>Taille: </p>
+                    <p>Poids: </p>
+                    <p>Age: </p>
                 </div>
                 <a href="index.php?page=modifyProperty&id=" class="btn btn-primary">Modifier</a>
                 <a href="index.php?page=deleteProperty&id=" class="btn btn-danger">Supprimer</a>

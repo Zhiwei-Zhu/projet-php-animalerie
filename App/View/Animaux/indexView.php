@@ -5,8 +5,11 @@
         <div class="card-body"> 
             <h5 class="card-title"></h5>
             <div class="card-text">
-                <p>Animal: </p>
+                <p>Nom: </p>
+                <p>Type: </p>
                 <p>Race: </p>
+                <p>Taille: </p>
+                <p>Poids: </p>
                 <p>Age: </p>
             </div>
             <a href="" class="btn btn-primary">Voir en détail</a>
