@@ -20,11 +20,11 @@ class ProduitController extends Controller{
     public function home(){
         $produits = $this->ProduitModel->findAll();
 
-        return $this->render("Produit/indexView ", [
+        return $this->render("Produit/indexView", [
             'produits' => $produits,
         ]);
     }
-    public function newAnimal(){
+    public function newProduit(){
 
         if(!empty($_POST)){
 
