@@ -2,27 +2,27 @@
     <form action="index.php?page=newAnimal" method="POST">
     <div class="form-group">
         <label for="nom">Nom</label>
-        <input type="text" class="form-control" id="nom" name="nom" value="<?= $animal->nom ?>">
+        <input type="text" class="form-control" id="nom" name="nom" value="">
     </div>
     <div class="form-group">
         <label for="type">Type</label>
-        <input type="text" class="form-control" id="type" name="type" value="<?= $animal->type ?>">
+        <input type="text" class="form-control" id="type" name="type" value="">
     </div>
     <div class="form-group">
         <label for="race">Race</label>
-        <input type="text" class="form-control" id="race" name="race" value="<?= $animal->race ?>">
+        <input type="text" class="form-control" id="race" name="race" value="">
     </div>
     <div class="form-group">
         <label for="taille">Taille en cm</label>
-        <input type="number" class="form-control" id="taille" name="taille" value="<?= $animal->taille ?>">
+        <input type="number" class="form-control" id="taille" name="taille" value="">
     </div>
     <div class="form-group">
         <label for="poids">Poidsen kg</label>
-        <input type="number" class="form-control" id="poids" name="poids" value="<?= $animal->poids ?>">
+        <input type="number" class="form-control" id="poids" name="poids" value="">
     </div>
     <div class="form-group">
         <label for="age">Age</label>
-        <input type="number" class="form-control" id="age" name="age" value="<?= $animal->age ?>">
+        <input type="number" class="form-control" id="age" name="age" value="">
     </div>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
