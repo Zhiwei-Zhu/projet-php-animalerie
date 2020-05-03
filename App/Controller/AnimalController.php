@@ -20,7 +20,7 @@ class AnimalController extends Controller{
 
     public function home(){
         $animals = $this->AnimalModel->findAll();
-        return $this->render("Animal/singleView", ['animals' => $animals]);
+        return $this->render("Animaux/indexView", ['animals' => $animals]);
     }
     public function newAnimal(){
 
@@ -32,13 +32,13 @@ class AnimalController extends Controller{
             return $this->redirectToRoute('animal');
 
         }
-        return $this->render("Animal/newView");
+        return $this->render("Animaux/newView");
     }
 
     public function single()
     {
         $animal = $this->AnimalModel->find($_GET["id"]);
-        return $this->render("Animal/singleView", ['animal' => $animal]);
+        return $this->render("Animaux/singleView", ['animal' => $animal]);
     }
 
     public function modify()
@@ -48,7 +48,7 @@ class AnimalController extends Controller{
             return $this->redirectToRoute('singleAnimal', $_GET["id"]);
         }
         $animal = $this->AnimalModel->find($_GET["id"]);
-        return $this->render("Animal/modifyView", ['animal' => $animal]);
+        return $this->render("Animaux/modifyView", ['animal' => $animal]);
     }
 
     public function delete()
@@ -59,7 +59,7 @@ class AnimalController extends Controller{
 
     public function reservation(){
         $reservations = $this->ReservationModel->findAll();
-        return $this->render("Animal/singleView", ['reservations' => $reservations]);
+        return $this->render("Animaux/adminindexView", ['reservations' => $reservations]);
     }
 
     public function newReservation()
@@ -78,11 +78,10 @@ class AnimalController extends Controller{
             $message= "veullez choisir une date de rdv";
         }
         $animal = $this->AnimalModel->find($_GET["id"]);
-        return $this->render("Animal/modifyView", [
+        return $this->render("Animaux/singleView", [
             'animal' => $animal,
             'message' => $message]
         );
-
     }
 
 
