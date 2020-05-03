@@ -78,6 +78,14 @@ if ((isset($_GET["page"]) && $_GET["page"] == 'home') || !isset($_GET["page"])) 
     $controller = new CommandeController();
     $controller->home();
     
+} elseif (isset($_GET["page"]) && $_GET["page"] == 'paiement') {
+    $controller = new CommandeController();
+    $controller->paiement();
+
+} elseif (isset($_GET["page"]) && $_GET["page"] == 'merci') {
+    $controller = new CommandeController();
+    $controller->remerciement();
+    
 }
 
 

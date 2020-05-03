@@ -2,7 +2,7 @@
         <thead>
           <tr>
             <th scope="col">User</th>
-            <th scope="col">Nom Du prouduit</th>
+            <th scope="col">Nom Du produit</th>
             <th scope="col">Prix</th>
             <th scope="col">Quantité</th>
           </tr>

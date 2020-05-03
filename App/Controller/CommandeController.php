@@ -52,7 +52,7 @@ class CommandeController extends Controller{
         }
         $commandes = $this->ligneCommandeModel->findOneBy(["commande_id" => ["Null"]]);
 
-        return $this->render("Commandes/Paiement", [
+        return $this->render("Commandes/paiement", [
             'commandes'=>$commandes,
             'montanttotal'=>$montanttotal
         ]);
