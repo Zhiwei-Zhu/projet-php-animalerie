@@ -1,9 +1,9 @@
 
-<div class="mt-12">
-    <div class="mt-5 title">
+<div class="container">
+    <div class="mt-5 text-align">
         <h2>Présentation de l'association</h2>
     </div>
-    <div class="mt-5 content">
+    <div class="mt-5 text-align">
         <p>On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).</p>
     </div>
 </div>
@@ -12,137 +12,266 @@
 
 
 
-<div class="carousel">
-    <?php foreach ($animals as $animal) : ?>
-<div class="slides">
-    <?php if($animal->type === "chien"): ?>
-    <img src="https://lemagduchien.ouest-france.fr/images/dossiers/2019-06/chien-heureux-064736.jpg" alt="slide image" class="slide">
-    <?php endif; ?>
-    <?php if($animal->type === "chat"): ?>
-    <img src="http://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="slide image" class="slide">
-    <?php endif; ?>
-    <?php if($animal->type === "oiseaux"): ?>
-    <img src="https://secure.img1-fg.wfcdn.com/im/07292327/resize-h800-w800%5Ecompr-r85/1166/116615321/Jeremy+Artful+12+in+x+6+in+x+8+in+Birdhouse.jpg" alt="slide image" class="slide">
-    <?php endif; ?>
-</div>
-<div class="controls">
-    <div class="control prev-slide">&#9668;</div>
-    <div class="control next-slide">&#9658;</div>
-</div>
+<div class="carousel-wrapper">
+    <div class="carousel">
+        <?php foreach ($animals as $animal) : ?>
+        <?php if($animal->type === "chien"): ?>
+            <img src="https://lemagduchien.ouest-france.fr/images/dossiers/2019-06/chien-heureux-064736.jpg" alt="slide image" class="carousel__photo">
+        <?php endif; ?>
+        <?php if($animal->type === "chat"): ?>
+            <img src="http://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="slide image" class="carousel__photo">
+        <?php endif; ?>
+        <?php if($animal->type === "oiseaux"): ?>
+            <img src="https://secure.img1-fg.wfcdn.com/im/07292327/resize-h800-w800%5Ecompr-r85/1166/116615321/Jeremy+Artful+12+in+x+6+in+x+8+in+Birdhouse.jpg" alt="slide image" class="carousel__photo">
+        <?php endif; ?>
+
+
+        <div class="carousel__button--next"></div>
+        <div class="carousel__button--prev"></div>
+
+    </div>
     <?php endforeach ?>
 </div>
+
+
+
+
   <script>
-      const delay = 3000; //ms
 
-      const slides = document.querySelector(".slides");
-      const slidesCount = slides.childElementCount;
-      const maxLeft = (slidesCount - 1) * 100 * -1;
+      !(function(d){
+          var itemClassName = "carousel__photo";
+          items = d.getElementsByClassName(itemClassName),
+              totalItems = items.length,
+              slide = 0,
+              moving = true;
 
-      let current = 0;
 
-      function changeSlide(next = true) {
-          if (next) {
-              current += current > maxLeft ? -100 : current * -1;
-          } else {
-              current = current < 0 ? current + 100 : maxLeft;
+          function setInitialClasses() {
+
+
+              items[totalItems - 1].classList.add("prev");
+              items[0].classList.add("active");
+              items[1].classList.add("next");
           }
 
-          slides.style.left = current + "%";
-      }
+          // Set click events to navigation buttons
 
-      let autoChange = setInterval(changeSlide, delay);
-      const restart = function() {
-          clearInterval(autoChange);
-          autoChange = setInterval(changeSlide, delay);
-      };
+          function setEventListeners() {
+              var next = d.getElementsByClassName('carousel__button--next')[0],
+                  prev = d.getElementsByClassName('carousel__button--prev')[0];
 
-      // Controls
-      document.querySelector(".next-slide").addEventListener("click", function() {
-          changeSlide();
-          restart();
-      });
+              next.addEventListener('click', moveNext);
+              prev.addEventListener('click', movePrev);
+          }
 
-      document.querySelector(".prev-slide").addEventListener("click", function() {
-          changeSlide(false);
-          restart();
-      });
+
+          function disableInteraction() {
+              moving = true;
+
+              setTimeout(function(){
+                  moving = false
+              }, 500);
+          }
+
+          function moveCarouselTo(slide) {
+
+
+              if(!moving) {
+
+
+                  disableInteraction();
+
+
+                  var newPrevious = slide - 1,
+                      newNext = slide + 1,
+                      oldPrevious = slide - 2,
+                      oldNext = slide + 2;
+
+
+                  if ((totalItems - 1) > 3) {
+
+
+                      if (newPrevious <= 0) {
+                          oldPrevious = (totalItems - 1);
+                      } else if (newNext >= (totalItems - 1)){
+                          oldNext = 0;
+                      }
+
+
+                      if (slide === 0) {
+                          newPrevious = (totalItems - 1);
+                          oldPrevious = (totalItems - 2);
+                          oldNext = (slide + 1);
+                      } else if (slide === (totalItems -1)) {
+                          newPrevious = (slide - 1);
+                          newNext = 0;
+                          oldNext = 1;
+                      }
+
+
+
+
+                      items[oldPrevious].className = itemClassName;
+                      items[oldNext].className = itemClassName;
+
+
+                      items[newPrevious].className = itemClassName + " prev";
+                      items[slide].className = itemClassName + " active";
+                      items[newNext].className = itemClassName + " next";
+                  }
+              }
+          }
+
+
+          function moveNext() {
+
+
+              if (!moving) {
+
+
+                  if (slide === (totalItems - 1)) {
+                      slide = 0;
+                  } else {
+                      slide++;
+                  }
+
+
+                  moveCarouselTo(slide);
+              }
+          }
+
+
+          function movePrev() {
+
+
+              if (!moving) {
+
+
+                  if (slide === 0) {
+                      slide = (totalItems - 1);
+                  } else {
+                      slide--;
+                  }
+
+
+                  moveCarouselTo(slide);
+              }
+          }
+
+
+          function initCarousel() {
+              setInitialClasses();
+              setEventListeners();
+
+
+              moving = false;
+          }
+
+
+          initCarousel();
+
+      }(document));
+
   </script>
 
 
 
 
 <style type="text/css">
-
-    $carousel-height: 250px;
-    $control-size: 50px;
-
-    body {
-        background: #3e3e3e;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
+    .carousel-wrapper {
+        overflow: hidden;
+        width: 90%;
+        margin: auto;
     }
+
+    .carousel-wrapper * {
+        box-sizing: border-box;
+    }
+
 
     .carousel {
-        width: 80vw;
-        height: $carousel-height;
-        border-radius: 3px;
-        overflow: hidden;
-        position: relative;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
 
-    &:hover .controls {
-         opacity: 1;
-     }
-
-    .controls {
+    .carousel__photo {
         opacity: 0;
-        display: flex;
         position: absolute;
-        top: 50%;
-        left: 0;
-        justify-content: space-between;
+        top:0;
         width: 100%;
-        z-index: 99999;
-        transition: all ease 0.5s;
-
-    .control {
-        margin: 0 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.7);
-        opacity: .5;
-        transition: ease .3s;
-        cursor: pointer;
-
-    &:hover {
-         opacity: 1;
-     }
-    }
+        margin: auto;
+        padding: 1rem 4rem;
+        z-index: 100;
+        transition: transform .5s, opacity .5s, z-index .5s;
     }
 
-    .slides {
+
+    .carousel__photo.initial,
+    .carousel__photo.active {
+        opacity: 1;
+        position: relative;
+        z-index: 900;
+    }
+
+
+    .carousel__photo.prev,
+    .carousel__photo.next {
+        z-index: 800;
+    }
+
+
+    .carousel__photo.prev {
+        transform: translateX(-100%);
+    }
+
+
+    .carousel__photo.next {
+        transform: translateX(100%);
+    }
+
+
+    .carousel__button--prev,
+    .carousel__button--next {
         position: absolute;
-        top: 50%;
-        left: 0;
+        top:50%;
+        width: 3rem;
+        height: 3rem;
+        background-color: #FFF;
         transform: translateY(-50%);
-        display: flex;
-        width: 100%;
-        transition: 1s ease-in-out all;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1001;
+        border:1px solid black;
 
-    .slide {
-        min-width: 100%;
-        min-height: $carousel-height;
-        height: auto;
-    }
-    }
     }
 
+    .carousel__button--prev {
+        left:0;
+    }
+
+    .carousel__button--next {
+        right:0;
+    }
+
+
+    .carousel__button--prev::after,
+    .carousel__button--next::after {
+        content: " ";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: 50%;
+        left: 54%;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+        transform: translate(-50%, -50%) rotate(135deg);
+    }
+
+    .carousel__button--next::after {
+        left: 47%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
 </style>
 
 
@@ -176,5 +305,17 @@
 <?php endforeach ?>
 
 
+<?php if (isset($_SESSION["user"])): ?>
 
-
+<div class="container mt-5">
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="montant">Montant</label>
+            <input type="text" class="form-control" id="montant" name="montant" value="">
+        </div>
+        <button href="#" type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+</div>
+<?php else?>
+    <button href="#" type="submit" disabled >Enregistrer</button>
+<?php endif; ?>
