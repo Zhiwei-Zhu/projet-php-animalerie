@@ -294,7 +294,7 @@
 
 
 <div class="container mt-5">
-    <form action="" method="POST">
+    <form action="index.php?page=dons" method="POST">
         <div class="form-group">
             <label for="montant">Montant</label>
             <input type="text" class="form-control" id="montant" name="montant" value="">

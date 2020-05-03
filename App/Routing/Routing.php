@@ -107,5 +107,9 @@ if ((isset($_GET["page"]) && $_GET["page"] == 'signup')) {
 } elseif (isset($_GET["page"]) && $_GET["page"] == 'logout') {  
     $controller = new UserController();
     $controller->logout();
-}
 
+
+} elseif (isset($_GET["page"]) && $_GET["page"] == 'dons') {  
+    $controller = new HomeController();
+    $controller->dons();
+}
