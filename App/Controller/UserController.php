@@ -16,12 +16,14 @@ class UserController extends Controller{
     }
 
     public function signup(){
+        
         $message = "";
         try {
             if(!empty($_POST) && !empty($_POST["nom"])){
                 $_POST["password"] = $this->encoder->passwordEncode($_POST["password"]);
                 $this->interface->save($_POST, 'user');
-                return $this->redirectToRoute('home');
+                var_dump($_POST);
+                //return $this->redirectToRoute('login');
             }else {
                 $message = "Il manque le nom";
             }
@@ -30,6 +32,7 @@ class UserController extends Controller{
         }
             
         return $this->render("user/signup", ["message" => $message]);
+        var_dump($_POST);
     }
 
     public function login(){

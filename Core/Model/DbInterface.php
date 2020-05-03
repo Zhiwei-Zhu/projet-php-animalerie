@@ -24,6 +24,7 @@ class DbInterface extends Model
             $key = ':' . $key;
             $value = htmlspecialchars($value);
         }
+        
         $this->prepare($statement, $data);
     }
 
