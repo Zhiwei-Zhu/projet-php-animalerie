@@ -1,6 +1,6 @@
 <div class="container mt-5">
-<form action="index.php?page=saveModifyProperty&id<?= $produit->id ?>" method="POST">
-    <div class="form-group">
+<form action="index.php?page=newProduit=<?= $produit->id ?>" method="POST">
+<div class="form-group">
         <label for="Nom">Nom</label>
         <input type="text" class="form-control" id="Nom" name="Nom" value="<?= $produit->nom ?>">
     </div>
@@ -16,6 +16,6 @@
         <label for="Stock">Stock</label>
         <input type="number" class="form-control" id="Stock" name="Stock" value="<?= $produit->stock ?>">
     </div>
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>
 </div>

@@ -11,7 +11,7 @@
                 <p>Prix: <?= $produit->prix ?></p>
                 <p>Stock: <?= $produit->stock ?> </p>
             </div>
-            <a href="" class="btn btn-primary">Voir en détail</a>
+            <a href="<?= $produit->id ?>" class="btn btn-primary">Voir en détail</a>
         </div>
     </div>
 </div>
