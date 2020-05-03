@@ -67,8 +67,8 @@ class AnimalController extends Controller{
         $message="";
 
         if (!empty($_POST) && $_POST['daterdv']) {
-            $user=$_SESSION['user'];
-            $_POST['user_id']=$user['id'];
+            ;
+            $_POST['user_id']=$_SESSION['user']->id;
             $_POST['animal_id']=$_GET["id"];
             $_POST['datetime']=new \DateTime();
 
