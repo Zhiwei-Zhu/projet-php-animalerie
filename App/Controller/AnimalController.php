@@ -29,7 +29,7 @@ class AnimalController extends Controller{
 
             $this->dbInterface->save($animal, 'animal');
 
-            return $this->redirectToRoute('animal');
+            return $this->redirectToRoute('homeAnimal');
 
         }
         return $this->render("Animaux/newView");

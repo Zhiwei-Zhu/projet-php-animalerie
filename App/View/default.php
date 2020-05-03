@@ -37,12 +37,18 @@
                     <a class="nav-link" href="index.php?page=logout">Déconnexion</a>
                 </li>
                     <?php if ($_SESSION["user"]->role=='admin'): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=newAnimal">createAnimaux</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=newProduit">createProduit</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=newAnimal">createAnimaux</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=newProduit">createProduit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=reservationAnimal">Réservations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=newAnimal">Commandes</a>
+                        </li>
                     <?php endif ?>
                 <?php endif ?>
 

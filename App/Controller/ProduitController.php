@@ -31,7 +31,7 @@ class ProduitController extends Controller{
 
             $this->dbInterface->save($_POST, 'produit');
 
-            return $this->redirectToRoute('produit');
+            return $this->redirectToRoute('homeProduit');
 
         }
         return $this->render("Produit/newView");
