@@ -19,7 +19,7 @@
                 <p>Prix: <?= $produit->prix ?></p>
                 <p>Stock: <?= $produit->stock ?> </p>
             </div>
-            <a href="<?= $produit->id ?>" class="btn btn-primary">Voir en détail</a>
+            <a href="index.php?page=singleProduit&id=<?= $produit->id ?>" class="btn btn-primary">Voir en détail</a>
         </div>
     </div>
 </div>

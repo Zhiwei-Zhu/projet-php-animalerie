@@ -4,6 +4,7 @@ use App\Controller\UserController;
 use App\Controller\AnimalController;
 use App\Controller\HomeController;
 use App\Controller\ProduitController;
+use App\Controller\CommandeController;
 use Model\DbInterface;
 
 
@@ -78,6 +79,10 @@ if ((isset($_GET["page"]) && $_GET["page"] == 'home') || !isset($_GET["page"])) 
     $controller = new CommandeController();
     $controller->home();
     
+}
+elseif (isset($_GET["page"]) && $_GET["page"] == 'addCommande') {
+    $controller = new ProduitController();
+    $controller->addtopanier();
 }
 
 

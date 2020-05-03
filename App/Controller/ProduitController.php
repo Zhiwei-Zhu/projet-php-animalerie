@@ -8,6 +8,7 @@ use App\Model\LigneCommandeModel;
 use App\Model\ProduitModel;
 use Core\Model\DbInterface;
 use Core\Controller\Controller;
+use phpDocumentor\Reflection\Types\Null_;
 
 class ProduitController extends Controller{
 
@@ -27,11 +28,9 @@ class ProduitController extends Controller{
     public function newProduit(){
 
         if(!empty($_POST)){
-
-
             $this->dbInterface->save($_POST, 'produit');
 
-            return $this->redirectToRoute('homeProduit');
+           return $this->redirectToRoute('homeProduit');
 
         }
         return $this->render("Produit/newView");
@@ -60,14 +59,14 @@ class ProduitController extends Controller{
     }
     public function addtopanier(){
         if (!empty($_POST)) {
+
             $_POST['produit_id'] = $_GET["id"];
+            $quantité=$_POST['quantite'];
+            $produit = $this->ProduitModel->find($_GET["id"]);
+            $produit_price=$produit->prix;
+            $_POST['montant']=$quantité*$produit_price;
 
-            $quantité=$_POST['quantité'];
-            $commande = $this->ligneCommandeModel->find($_GET["id"]);
-            $commande_price=$commande->prix;
-            $_POST['montant']=$quantité* $commande_price;
-
-            $this->dbInterface->save($_POST, 'lignecommande');
+            $this->dbInterface->save($_POST,'lignecommande');
             return $this->redirectToRoute('singleProduit', $_GET["id"]);
         }
         $commande = $this->ligneCommandeModel->find($_GET["id"]);
