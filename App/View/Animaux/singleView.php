@@ -21,13 +21,18 @@
             </div>
 
             <?php if (!isset($_SESSION["user"])): ?>
-                <a href="index.php?page=reservation&id=<?= $animal->id ?>" class="btn btn-primary">Réserver</a>
-            <?php elseif ($_SESSION["user"]->role=="admin"): ?> 
-                <a href="index.php?page=modifyAnimal&id=<?= $animal->id ?>" class="btn btn-primary">Modifier</a>
-                <a href="index.php?page=deleteAnimal&id=<?= $animal->id ?>" class="btn btn-danger">Supprimer</a>
-            <?php elseif (isset($_SESSION["user"])): ?>
                 <p>Veuillez être connecter pour réserver</p>
                 <a href="" alt="" class="btn btn-secondary">Réserver</a>
+            <?php else : ?>
+                <form action="index.php?page=newReservationAnimal&id=<?= $animal->id ?>" method="POST">
+                    <label for="daterdv">date rendez-vous</label>
+                    <input type="date" id="daterdv" name="daterdv">
+                    <button type="submit" class="btn btn-primary">Réserver</button>
+                </form>
+                <?php if ($_SESSION["user"]->role=="admin"): ?> 
+                    <a href="index.php?page=modifyAnimal&id=<?= $animal->id ?>" class="btn btn-primary">Modifier</a>
+                    <a href="index.php?page=deleteAnimal&id=<?= $animal->id ?>" class="btn btn-danger">Supprimer</a>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
     </div>

@@ -59,10 +59,7 @@ class AnimalController extends Controller{
 
     public function reservation(){
         $reservations = $this->ReservationModel->findAll();
-        foreach ($reservations as $reservation){
-            $reservation->user_id= $this->UserModel->find($reservation->user_id);
-            $reservation->animal_id= $this->AnimalModel->find($reservation->animal_id);
-        }
+        
         return $this->render("Animaux/adminIndexViews", ['reservations' => $reservations]);
     }
 
@@ -74,9 +71,11 @@ class AnimalController extends Controller{
             ;
             $_POST['user_id']=$_SESSION['user']->id;
             $_POST['animal_id']=$_GET["id"];
-            $_POST['datetime']=new \DateTime();
-
+            $datetime=new \DateTime();
+            $_POST['datetime']=$datetime->format('Y-m-d');
+            
             $this->dbInterface->save($_POST,'reservation');
+            
             return $this->redirectToRoute('singleAnimal', $_GET["id"]);
         }else{
             $message= "veullez choisir une date de rdv";
