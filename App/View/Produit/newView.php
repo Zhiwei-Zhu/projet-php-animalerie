@@ -9,6 +9,7 @@
         <input type="text" class="form-control" id="type_animal" name="type_animal" value="">
     </div>
     <div class="form-group">
+        <label for="prix">Prix</label>
         <label for="Prix">Prix</label>
         <input type="number" class="form-control" id="prix" name="prix" value="">
     </div>

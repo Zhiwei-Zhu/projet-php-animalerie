@@ -10,6 +10,9 @@
         <tbody>
             <?php foreach ($commandes as $commande) : ?>
                 <tr>
+                    <td><?= $commande->user_id->nom ?></td>
+                    <td><?= $reservation->animal_id->nom ?></td>
+                    <td><?= $reservation->daterdv ?></td>
                     <td><?= $commande->user ?></td>
                     <td><?= $commande->montanttotal ?></td>
                     <form action="index.php?page=adminCommande&id=<?= $commande->id ?>">
@@ -23,7 +26,6 @@
                         </td>
                         <td><button type="submit" class="btn btn-primary"></button></td>
                     </form>
-
                 </tr>
             <?php endforeach ?>
         </tbody>
