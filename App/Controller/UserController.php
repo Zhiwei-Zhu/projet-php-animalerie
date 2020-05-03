@@ -20,9 +20,19 @@ class UserController extends Controller{
         $message = "";
         try {
             if(!empty($_POST) && !empty($_POST["nom"])){
-                $_POST["password"] = $this->encoder->passwordEncode($_POST["password"]);
-                $this->interface->save($_POST, 'user');
+                $users = $this->model ->findAll();
+                foreach ($users as $user) {
+                
+                if ($user->nom == $_POST['nom']){
+                    $message = "Nom déja utilisé.";
+                
+                
+                 } else {
+                    $_POST["password"] = $this->encoder->passwordEncode($_POST["password"]);
+                    $this->interface->save($_POST, 'user');
                         return $this->redirectToRoute('login');
+                 } }
+                
             }else {
                 $message = "Il manque le nom";
             }
