@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
         <label for="Prix">Date d'expiration</label>
-        <input type="number" class="form-control">
+        <input type="date" class="form-control">
     </div>
     <div class="form-group">
         <label for="Stock">Code de sécurité (CVV)</label>
