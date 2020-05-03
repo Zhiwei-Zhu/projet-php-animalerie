@@ -2,7 +2,15 @@
 <div class="affichage mt-5 justify-content-around">
     <?php foreach ($animals as $animal) : ?>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://fakeimg.pl/300x200/" alt="Card image cap">
+        <?php if($type->animal === "chien"): ?>
+        <img class="card-img-top" src="https://lemagduchien.ouest-france.fr/images/dossiers/2019-06/chien-heureux-064736.jpg" alt="Card image cap">
+    <?php endif; ?>
+    <?php if($type->animal === "chat"): ?>
+        <img class="card-img-top" src="http://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="Card image cap">
+    <?php endif; ?>
+    <?php if($type->animal === "oiseaux"): ?>
+        <img class="card-img-top" src="https://media1.ledevoir.com/images_galerie/nwd_752350_589649/image.jpg" alt="Card image cap">
+    <?php endif; ?>
             <div class="card-body"> 
                 <h5 class="card-title"></h5>
                 <div class="card-text">
