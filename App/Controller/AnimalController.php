@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Model\AnimalModel;
 use App\Model\ReservationModel;
+use App\Model\UserModel;
 use Core\Model\DbInterface;
 use Core\Controller\Controller;
 
@@ -13,6 +14,7 @@ class AnimalController extends Controller{
 
     public function __construct()
     {
+        $this->UserModel = new UserModel();
         $this->ReservationModel = new ReservationModel();
         $this->AnimalModel = new AnimalModel();
         $this->dbInterface = new DbInterface();
@@ -59,7 +61,11 @@ class AnimalController extends Controller{
 
     public function reservation(){
         $reservations = $this->ReservationModel->findAll();
-        
+
+        foreach ($reservations as $reservation){
+            $reservation->user_id= $this->UserModel->find($reservation->user_id);
+            $reservation->animal_id= $this->AnimalModel->find($reservation->animal_id);
+        }
         return $this->render("Animaux/adminIndexViews", ['reservations' => $reservations]);
     }
 
@@ -73,9 +79,8 @@ class AnimalController extends Controller{
             $_POST['animal_id']=$_GET["id"];
             $datetime=new \DateTime();
             $_POST['datetime']=$datetime->format('Y-m-d');
-            
+
             $this->dbInterface->save($_POST,'reservation');
-            
             return $this->redirectToRoute('singleAnimal', $_GET["id"]);
         }else{
             $message= "veullez choisir une date de rdv";
