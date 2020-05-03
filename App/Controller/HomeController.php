@@ -32,7 +32,8 @@ class HomeController extends Controller{
         if(!empty($_POST)){
             $user=$_SESSION['user'];
             $_POST['user_id']=$user['id'];
-            $_POST['datetime']=new \DateTime();
+            $date=new \DateTime();
+            $_POST['datetime']=$date->format('Y-m-d');
 
             $this->dbInterface->save($_POST,'dons');
 
