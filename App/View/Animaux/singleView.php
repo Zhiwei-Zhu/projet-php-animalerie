@@ -13,7 +13,7 @@
             </div>
 
             <?php if (!isset($_SESSION["user"])): ?>
-                <a href="index.php?page=reserver&id=<?= $animal->id ?>" class="btn btn-primary">Réserver</a>
+                <a href="index.php?page=reservation&id=<?= $animal->id ?>" class="btn btn-primary">Réserver</a>
             <?php elseif ($_SESSION["user"]->role=="admin"): ?> 
                 <a href="index.php?page=modifyAnimal&id=<?= $animal->id ?>" class="btn btn-primary">Modifier</a>
                 <a href="index.php?page=deleteAnimal&id=<?= $animal->id ?>" class="btn btn-danger">Supprimer</a>

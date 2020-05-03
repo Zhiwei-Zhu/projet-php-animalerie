@@ -13,7 +13,7 @@
                     <p>Poids: <?= $animal->poids ?></p>
                     <p>Age: <?= $animal->age ?></p>
                 </div>
-                <a href="<?= $animal->id ?>" class="btn btn-primary">Voir en détail</a>
+                <a href="index.php?page=singleAnimal&id=<?= $animal->id ?>" class="btn btn-primary">Voir en détail</a>
             </div>
         </div>
     <?php endforeach ?>
