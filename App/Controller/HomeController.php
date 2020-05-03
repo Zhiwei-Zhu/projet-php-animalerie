@@ -30,13 +30,11 @@ class HomeController extends Controller{
     public function dons(){
 
         if(!empty($_POST)){
-            $user=$_SESSION['user'];
-            $_POST['user_id']=$user['id'];
+
+            $_POST['user_id']=$_SESSION['user']->id;
             $date=new \DateTime();
             $_POST['datetime']=$date->format('Y-m-d');
-
             $this->dbInterface->save($_POST,'dons');
-
             return $this->redirectToRoute('home');
 
         }
