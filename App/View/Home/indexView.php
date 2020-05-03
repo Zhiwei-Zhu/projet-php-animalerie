@@ -1,20 +1,35 @@
 
-
+<div class="mt-12">
+    <div class="mt-5 title">
+        <h2>Présentation de l'association</h2>
+    </div>
+    <div class="mt-5 content">
+        <p>On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).</p>
+    </div>
+</div>
 
 
 
 
 
 <div class="carousel">
+    <?php foreach ($animals as $animal) : ?>
 <div class="slides">
-    <img src="https://picsum.photos/1280/720?random=1" alt="slide image" class="slide">
-    <img src="https://picsum.photos/1280/720?random=2" alt="slide image" class="slide">
-    <img src="https://picsum.photos/1280/720?random=3" alt="slide image" class="slide">
+    <?php if($animal->type === "chien"): ?>
+    <img src="https://lemagduchien.ouest-france.fr/images/dossiers/2019-06/chien-heureux-064736.jpg" alt="slide image" class="slide">
+    <?php endif; ?>
+    <?php if($animal->type === "chat"): ?>
+    <img src="http://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="slide image" class="slide">
+    <?php endif; ?>
+    <?php if($animal->type === "oiseaux"): ?>
+    <img src="https://secure.img1-fg.wfcdn.com/im/07292327/resize-h800-w800%5Ecompr-r85/1166/116615321/Jeremy+Artful+12+in+x+6+in+x+8+in+Birdhouse.jpg" alt="slide image" class="slide">
+    <?php endif; ?>
 </div>
 <div class="controls">
     <div class="control prev-slide">&#9668;</div>
     <div class="control next-slide">&#9658;</div>
 </div>
+    <?php endforeach ?>
 </div>
   <script>
       const delay = 3000; //ms
@@ -133,14 +148,6 @@
 
 
 
-
-
-
-
-
-
-
-
 <div class="recherche mt-5"></div>
 <div class="affichage mt-5 justify-content-around">
 <?php foreach ($produits as $produit) :?>
@@ -167,3 +174,7 @@
     </div>
 </div>
 <?php endforeach ?>
+
+
+
+
