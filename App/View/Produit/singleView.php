@@ -17,15 +17,20 @@
                 <p>Prix: <?= $produit->prix ?></p>
                 <p>Stock: <?= $produit->stock ?> </p>
             </div>
-            <?php if (!isset($_SESSION["user"])): ?>
-                <a href="index.php?page=reserver&id=<?= $produit->id ?>" class="btn btn-primary">Ajouter au panier</a>
-            <?php elseif ($_SESSION["user"]->role=="admin"): ?> 
-                <a href="index.php?page=modifyAnimal&id=<?= $produit->id ?>" class="btn btn-primary">Modifier</a>
-                <a href="index.php?page=deleteAnimal&id=<?= $produit->id ?>" class="btn btn-danger">Supprimer</a>
-            <?php elseif (!isset($_SESSION["user"])): ?>
-                <p>Veuillez vous connecter pour ajouter un produit au panier</p>
-                <a href="" alt="" class="btn btn-secondary">Ajouter au panier</a>
+        <?php if (!isset($_SESSION["user"])): ?>
+            <p>Veuillez être connecter pour acheter</p>
+            <a href="" alt="" class="btn btn-secondary">Ajouter au Panier</a>
+        <?php else : ?>
+            <form action="index.php?page=addCommande&id=<?= $produit->id ?>" method="POST">
+                <label for="quantite">quantité</label>
+                <input type="number" id="quantite" name="quantite">
+                <button type="submit" class="btn btn-primary">Ajouter au Panier</button>
+            </form>
+            <?php if ($_SESSION["user"]->role=="admin"): ?>
+                <a href="index.php?page=modifyProduit&id=<?= $produit->id ?>" class="btn btn-primary">Modifier</a>
+                <a href="index.php?page=deleteProduit&id=<?= $produit->id ?>" class="btn btn-danger">Supprimer</a>
             <?php endif; ?>
+        <?php endif; ?>
         </div>
     </div>
 </div>

@@ -34,14 +34,14 @@
                 </li>
                 <?php else: ?>
                     <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=logout">Déconnexion</a>
-                </li>
+                        <a class="nav-link" href="index.php?page=logout">Déconnexion</a>
+                    </li>
                     <?php if ($_SESSION["user"]->role=='admin'): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=newAnimal">createAnimaux</a>
+                            <a class="nav-link" href="index.php?page=newAnimal">Ajouter Animaux</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=newProduit">createProduit</a>
+                            <a class="nav-link" href="index.php?page=newProduit">Ajouter Produit</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=reservationAnimal">Réservations</a>

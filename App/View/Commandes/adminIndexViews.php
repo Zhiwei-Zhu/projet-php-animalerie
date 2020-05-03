@@ -2,17 +2,30 @@
         <thead>
           <tr>
             <th scope="col">User</th>
-            <th scope="col">Nom Du prouduit</th>
-            <th scope="col">Prix</th>
-            <th scope="col">Quantité</th>
+            <th scope="col">Montant</th>
+              <th scope="col">Etat</th>
+              <th scope="col"> </th>
           </tr>
         </thead>
         <tbody>
-            <?php foreach ($reservations as $reservation) : ?>
+            <?php foreach ($commandes as $commande) : ?>
                 <tr>
-                    <td><?= $reservation->user_id->nom ?></td>
+                    <td><?= $commande->user_id->nom ?></td>
                     <td><?= $reservation->animal_id->nom ?></td>
                     <td><?= $reservation->daterdv ?></td>
+                    <td><?= $commande->user ?></td>
+                    <td><?= $commande->montanttotal ?></td>
+                    <form action="index.php?page=adminCommande&id=<?= $commande->id ?>">
+                        <td>
+                            <select id="etat" name="etat">
+                                <option>erreur paiement</option>
+                                <option>attente confirmation</option>
+                                <option> en livraison </option>
+                                <option>livré</option>
+                            </select>
+                        </td>
+                        <td><button type="submit" class="btn btn-primary"></button></td>
+                    </form>
                 </tr>
             <?php endforeach ?>
         </tbody>

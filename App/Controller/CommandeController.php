@@ -24,16 +24,16 @@ class CommandeController extends Controller{
     //panier
     public function home(){
 
-        $commandes = $this->ligneCommandeModel->findOneBy(["commande_id" => ["Null"]]);
-
+        $commandes = $this->ligneCommandeModel->findBy(['commande_id'=>'null']);
         return $this->render("Commandes/indexView", [
             'commandes' => $commandes,
         ]);
     }
+
     public function paiement(){
         $montanttotal=0;
         if (!empty($_POST)){
-            $lignecommandes = $this->ligneCommandeModel->findOneBy(["commande_id" => ["Null"]]);
+            $lignecommandes = $this->ligneCommandeModel->findOneBy(["commande_id" => "null"]);
             foreach ($lignecommandes as $lignecommande){
                 $montanttotal+=$lignecommande->montant;
             }
@@ -50,20 +50,23 @@ class CommandeController extends Controller{
 
             return $this->redirectToRoute('singleAnimal', $_GET["id"]);
         }
-        $commandes = $this->ligneCommandeModel->findOneBy(["commande_id" => ["Null"]]);
+        $commandes = $this->ligneCommandeModel->findOneBy(["commande_id" => "null"]);
 
-        return $this->render("Commandes/Paiement", [
+        return $this->render("Commandes/paiement", [
             'commandes'=>$commandes,
             'montanttotal'=>$montanttotal
         ]);
     }
+
     public function remerciement(){
 
         return $this->render("Commandes/remerciement", [
         ]);
     }
+
     public function admincommande(){
         if (!empty($_POST)){
+
             $this->dbInterface->update('commande', $_POST, $_GET["id"]);
             return $this->redirectToRoute('adminCommande', $_GET["id"]);
         }
