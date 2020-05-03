@@ -23,15 +23,9 @@
                                 <option> en livraison </option>
                                 <option>livré</option>
                             </select>
-<<<<<<< Updated upstream
                         </td>
-                        <td><button type="submit" class="btn btn-primary"></button></td>
-                    </form>
-=======
                         <button type="submit" class="btn btn-primary">update</button>
                     </form></td>
-
->>>>>>> Stashed changes
                 </tr>
             <?php endforeach ?>
         </tbody>
