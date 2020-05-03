@@ -27,7 +27,7 @@
                 </li>
                 <?php if (!isset($_SESSION["user"])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=signup">Inscription</a>
+                    <a class="nav-link" href="index.php?page=si*gnup">Inscription</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?page=login">Connexion</a>
