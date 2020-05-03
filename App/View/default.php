@@ -47,7 +47,7 @@
                             <a class="nav-link" href="index.php?page=reservationAnimal">Réservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=newAnimal">Commandes</a>
+                            <a class="nav-link" href="index.php?page=adminCommande">Commandes</a>
                         </li>
                     <?php endif ?>
                 <?php endif ?>
