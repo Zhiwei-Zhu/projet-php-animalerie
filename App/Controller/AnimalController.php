@@ -59,7 +59,11 @@ class AnimalController extends Controller{
 
     public function reservation(){
         $reservations = $this->ReservationModel->findAll();
-        return $this->render("Animaux/adminindexView", ['reservations' => $reservations]);
+        foreach ($reservations as $reservation){
+            $reservation->user_id= $this->UserModel->find($reservation->user_id);
+            $reservation->animal_id= $this->AnimalModel->find($reservation->animal_id);
+        }
+        return $this->render("Animaux/adminIndexViews", ['reservations' => $reservations]);
     }
 
     public function newReservation()
