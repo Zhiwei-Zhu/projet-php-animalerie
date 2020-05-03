@@ -303,7 +303,10 @@
         <button href="#" type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 </div>
-<? else : ?> 
-    <button href="#" type="submit" disabled>Enregistrer</button>
-<?php endif; ?>
+
+<?php else :?>
+    <button href="#" type="submit" disabled >Enregistrer</button>
+<?php endif  ?>
+
+
 
