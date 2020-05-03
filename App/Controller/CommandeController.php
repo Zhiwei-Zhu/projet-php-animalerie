@@ -19,6 +19,8 @@ class CommandeController extends Controller{
         $this->ProduitModel = new ProduitModel();
         $this->dbInterface = new DbInterface();
     }
+
+    
     //panier
     public function home(){
 

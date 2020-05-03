@@ -1,5 +1,5 @@
 <div class="container mt-5">
-<form action="index.php?page=saveModifyProperty&id=" method="POST">
+<form action="index.php?page=modifyAnimal&id=<?= $animal->id ?>" method="POST">
     <div class="form-group">
         <label for="nom">Nom</label>
         <input type="text" class="form-control" id="nom" name="nom" value="<?= $animal->nom ?>">

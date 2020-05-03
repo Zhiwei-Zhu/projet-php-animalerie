@@ -25,20 +25,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="">Produits <span class="sr-only"></span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Nouvelle Option</a>
+                </li>
                 <?php if (!isset($_SESSION["user"])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=signup">Inscription</a>
+                    <a class="nav-link" href="index.php?page=si*gnup">Inscription</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?page=login">Connexion</a>
                 </li>
                 <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Panier</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=logout">Déconnexion</a>
-                    </li>
+                    <a class="nav-link" href="index.php?page=logout">Déconnexion</a>
+                </li>
                 <?php endif ?>
                 </ul>
             </div>
