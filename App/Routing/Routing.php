@@ -67,9 +67,17 @@ if ((isset($_GET["page"]) && $_GET["page"] == 'home') || !isset($_GET["page"])) 
 } elseif (isset($_GET["page"]) && $_GET["page"] == 'deleteProduit') { 
     $controller = new ProduitController();
     $controller->delete();
+
+
+} elseif (isset($_GET["page"]) && $_GET["page"] == 'adminCommande') { 
+    $controller = new CommandeController();
+    $controller->admincommande();
+
+
 } elseif (isset($_GET["page"]) && $_GET["page"] == 'homeCommande') {
     $controller = new CommandeController();
     $controller->home();
+    
 }
 
 

@@ -69,7 +69,7 @@ class CommandeController extends Controller{
         }
         $commandes = $this->CommandeModel->findAll();
 
-        return $this->render("Commandes/adminindexView", [
+        return $this->render("Commandes/adminIndexViews", [
             'commandes' => $commandes,
         ]);
     }
