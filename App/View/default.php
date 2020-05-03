@@ -34,6 +34,9 @@
                 </li>
                 <?php else: ?>
                     <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=homeCommande">Panier</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php?page=logout">Déconnexion</a>
                     </li>
                     <?php if ($_SESSION["user"]->role=='admin'): ?>
