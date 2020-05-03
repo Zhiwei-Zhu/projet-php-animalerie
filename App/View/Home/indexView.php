@@ -174,9 +174,6 @@
 
   </script>
 
-
-
-
 <style type="text/css">
     .carousel-wrapper {
         overflow: hidden;
@@ -206,7 +203,6 @@
         transition: transform .5s, opacity .5s, z-index .5s;
     }
 
-
     .carousel__photo.initial,
     .carousel__photo.active {
         opacity: 1;
@@ -214,22 +210,18 @@
         z-index: 900;
     }
 
-
     .carousel__photo.prev,
     .carousel__photo.next {
         z-index: 800;
     }
 
-
     .carousel__photo.prev {
         transform: translateX(-100%);
     }
 
-
     .carousel__photo.next {
         transform: translateX(100%);
     }
-
 
     .carousel__button--prev,
     .carousel__button--next {
@@ -254,7 +246,6 @@
         right:0;
     }
 
-
     .carousel__button--prev::after,
     .carousel__button--next::after {
         content: " ";
@@ -273,9 +264,6 @@
         transform: translate(-50%, -50%) rotate(-45deg);
     }
 </style>
-
-
-
 
 <div class="recherche mt-5"></div>
 <div class="affichage mt-5 justify-content-around">
@@ -305,17 +293,17 @@
 <?php endforeach ?>
 
 
-<?php if (isset($_SESSION["user"])): ?>
-
 <div class="container mt-5">
     <form action="" method="POST">
         <div class="form-group">
             <label for="montant">Montant</label>
             <input type="text" class="form-control" id="montant" name="montant" value="">
         </div>
+    <?php if (isset($_SESSION["user"])): ?>
         <button href="#" type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 </div>
-<?php else?>
-    <button href="#" type="submit" disabled >Enregistrer</button>
+<? else : ?> 
+    <button href="#" type="submit" disabled>Enregistrer</button>
 <?php endif; ?>
+
