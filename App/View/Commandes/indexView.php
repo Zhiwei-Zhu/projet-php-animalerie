@@ -17,4 +17,4 @@
         </tbody>
 
     </table>
-<a href="index.php?page=Paiement" class="btn btn-primary">payer</a>
+<a href="index.php?page=paiement" class="btn btn-primary">payer</a>

@@ -32,41 +32,43 @@ class CommandeController extends Controller{
 
     public function paiement(){
         $montanttotal=0;
-        if (!empty($_POST)){
-            $lignecommandes = $this->ligneCommandeModel->findOneBy(["commande_id" => "null"]);
-            foreach ($lignecommandes as $lignecommande){
-                $montanttotal+=$lignecommande->montant;
-            }
-            $_POST['user']=$_SESSION['user']->nom;
-            $_POST['datetime']= new \DateTime();
-            $_POST['montanttotal']=$montanttotal;
-            $_POST['etat']='attente confirmation';
-            $this->dbInterface->save($_POST,'commande');
-            $commande_id = $this->CommandeModel->findOneBy(["user" => $_SESSION['user']->nom]);
-            $commande_id= $commande_id->id;
-            foreach ($lignecommandes as $lignecommande){
-                $this->dbInterface->save(['commande_id'=>$commande_id],'lignecommande');
-            }
-
-            return $this->redirectToRoute('singleAnimal', $_GET["id"]);
+        $lignecommandes = $this->ligneCommandeModel->findBy(["commande_id" => "null"]);
+        foreach ($lignecommandes as $lignecommande){
+            $montanttotal+=$lignecommande->montant;
         }
-        $commandes = $this->ligneCommandeModel->findOneBy(["commande_id" => "null"]);
+
+        $commandes = $this->ligneCommandeModel->findBy(["commande_id" => "null"]);
 
         return $this->render("Commandes/paiement", [
             'commandes'=>$commandes,
-            'montanttotal'=>$montanttotal
+            'montanttotal'=>$montanttotal,
         ]);
     }
 
     public function remerciement(){
-
+        $montanttotal=0;
+        $lignecommandes = $this->ligneCommandeModel->findBy(["commande_id" => "null"]);
+        foreach ($lignecommandes as $lignecommande){
+            $montanttotal+=$lignecommande->montant;
+        }
+        $_POST['user']=$_SESSION['user']->nom;
+        $date= new \DateTime();
+            $_POST['datetime']=$date->format('Y-m-d') ;
+            $_POST['montanttotal']=$montanttotal;
+            $_POST['etat']='attente confirmation';
+            $this->dbInterface->save($_POST,'commande');
+            $commande = $this->CommandeModel->findBy(["user" => $_SESSION['user']->nom]);
+            $commande_id= $commande[0]->id;
+            foreach ($lignecommandes as $lignecommande){
+                $this->dbInterface->update('lignecommande',['commande_id'=>$commande_id], $lignecommande->id);
+            }
         return $this->render("Commandes/remerciement", [
         ]);
     }
 
     public function admincommande(){
         if (!empty($_POST)){
-
+            var_dump($this->dbInterface->update('commande', $_POST, $_GET["id"]));
             $this->dbInterface->update('commande', $_POST, $_GET["id"]);
             return $this->redirectToRoute('adminCommande', $_GET["id"]);
         }

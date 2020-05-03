@@ -15,17 +15,23 @@
                     <td><?= $reservation->daterdv ?></td>
                     <td><?= $commande->user ?></td>
                     <td><?= $commande->montanttotal ?></td>
-                    <form action="index.php?page=adminCommande&id=<?= $commande->id ?>">
-                        <td>
+                    <td><form action="index.php?page=adminCommande&id=<?= $commande->id ?>" method="POST">
                             <select id="etat" name="etat">
+                                <option><?= $commande->etat ?></option>
                                 <option>erreur paiement</option>
                                 <option>attente confirmation</option>
                                 <option> en livraison </option>
                                 <option>livré</option>
                             </select>
+<<<<<<< Updated upstream
                         </td>
                         <td><button type="submit" class="btn btn-primary"></button></td>
                     </form>
+=======
+                        <button type="submit" class="btn btn-primary">update</button>
+                    </form></td>
+
+>>>>>>> Stashed changes
                 </tr>
             <?php endforeach ?>
         </tbody>

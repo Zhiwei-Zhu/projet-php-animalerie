@@ -18,7 +18,7 @@
         <input type="number" class="form-control">
     </div>
     <br>
-        <button class="button" class="btn btn-success"><a href="#">Payer</a></button>
-        <button class="button" class="btn btn-danger"><a href="index.php">Annuler</a></button>
+    <a href="index.php?page=merci"  class="btn btn-primary">Payer</a>
+       <a href="index.php?page=home"  class="btn btn-danger">Annuler</a>
 </form>
 </div>
