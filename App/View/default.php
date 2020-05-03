@@ -20,17 +20,14 @@
                     <a class="nav-link" href="index.php">Accueil <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Animaux</a>
+                    <a class="nav-link" href="index.php?page=homeAnimal">Animaux</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Produits <span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Nouvelle Option</a>
+                    <a class="nav-link" href="index.php?page=homeProduit">Produits</a>
                 </li>
                 <?php if (!isset($_SESSION["user"])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=si*gnup">Inscription</a>
+                    <a class="nav-link" href="index.php?page=signup">Inscription</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?page=login">Connexion</a>
@@ -39,7 +36,16 @@
                     <li class="nav-item">
                     <a class="nav-link" href="index.php?page=logout">Déconnexion</a>
                 </li>
+                    <?php if ($_SESSION["user"]->role=='admin'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=newAnimal">createAnimaux</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=newProduit">createProduit</a>
+                    </li>
+                    <?php endif ?>
                 <?php endif ?>
+
                 </ul>
             </div>
         </nav>

@@ -47,21 +47,13 @@ if ((isset($_GET["page"]) && $_GET["page"] == 'home') || !isset($_GET["page"])) 
     $controller->newReservation();
 
 
-}
-
-
-
-if ((isset($_GET["page"]) && $_GET["page"] == 'home') || !isset($_GET["page"])) {
-    $controller = new HomeController();
-    $controller->home();
-
-}elseif (isset($_GET["page"]) && $_GET["page"] == 'homeProduit') { 
+} elseif (isset($_GET["page"]) && $_GET["page"] == 'homeProduit') {
     $controller = new ProduitController();
     $controller->home();
 
 } elseif (isset($_GET["page"]) && $_GET["page"] == 'newProduit') { 
     $controller = new ProduitController();
-    $controller->newAnimal();
+    $controller->newProduit();
 
 } elseif (isset($_GET["page"]) && $_GET["page"] == 'singleProduit') {  
     $controller = new ProduitController();
@@ -75,20 +67,9 @@ if ((isset($_GET["page"]) && $_GET["page"] == 'home') || !isset($_GET["page"])) 
 } elseif (isset($_GET["page"]) && $_GET["page"] == 'deleteProduit') { 
     $controller = new ProduitController();
     $controller->delete();
-}
-
-
-
-
-if ((isset($_GET["page"]) && $_GET["page"] == 'home') || !isset($_GET["page"])) {
-    $controller = new HomeController();
-    $controller->home();
-
-
-} elseif (isset($_GET["page"]) && $_GET["page"] == 'homeCommande') { 
+} elseif (isset($_GET["page"]) && $_GET["page"] == 'homeCommande') {
     $controller = new CommandeController();
     $controller->home();
-
 }
 
 

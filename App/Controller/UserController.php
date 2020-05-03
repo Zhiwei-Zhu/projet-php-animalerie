@@ -22,8 +22,7 @@ class UserController extends Controller{
             if(!empty($_POST) && !empty($_POST["nom"])){
                 $_POST["password"] = $this->encoder->passwordEncode($_POST["password"]);
                 $this->interface->save($_POST, 'user');
-                var_dump($_POST);
-                //return $this->redirectToRoute('login');
+                        return $this->redirectToRoute('login');
             }else {
                 $message = "Il manque le nom";
             }
@@ -43,7 +42,7 @@ class UserController extends Controller{
                 if($connected){
                     $_SESSION["user"] = $user;
                 }
-                return $this->redirectToRoute("home");
+                return $this->redirectToRoute("homeAnimal");
             }
         }
         return $this->render('user/login');
