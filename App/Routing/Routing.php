@@ -8,6 +8,7 @@ use Model\DbInterface;
 
 
 
+
 if ((isset($_GET["page"]) && $_GET["page"] == 'home') || !isset($_GET["page"])) {
     $controller = new HomeController();
     $controller->home();
