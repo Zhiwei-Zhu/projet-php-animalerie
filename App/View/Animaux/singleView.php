@@ -22,7 +22,7 @@
 
             <?php if (!isset($_SESSION["user"])): ?>
                 <p>Veuillez être connecter pour réserver</p>
-                <a href="" alt="" class="btn btn-secondary">Réserver</a>
+                <a href="" alt="" class="btn btn-danger">Réserver</a>
             <?php else : ?>
                 <form action="index.php?page=newReservationAnimal&id=<?= $animal->id ?>" method="POST">
                     <label for="daterdv">date rendez-vous</label>

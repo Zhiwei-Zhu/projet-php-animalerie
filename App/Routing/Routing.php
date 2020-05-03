@@ -13,8 +13,9 @@ use Model\DbInterface;
 if ((isset($_GET["page"]) && $_GET["page"] == 'home') || !isset($_GET["page"])) {
     $controller = new HomeController();
     $controller->home();
+    
 
-} elseif (isset($_GET["page"]) && $_GET["page"] == 'homeAnimal') { 
+}elseif (isset($_GET["page"]) && $_GET["page"] == 'homeAnimal') { 
     $controller = new AnimalController();
     $controller->home();
 

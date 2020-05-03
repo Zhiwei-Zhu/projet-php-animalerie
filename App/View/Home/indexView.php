@@ -316,6 +316,6 @@
         <button href="#" type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 </div>
-<?php else?>
+<?php else :?>
     <button href="#" type="submit" disabled >Enregistrer</button>
-<?php endif; ?>
+<?php endif  ?>
